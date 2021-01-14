@@ -1,0 +1,7 @@
+*/images/buildings/*
+*/images/icons/*
+.eslintrc.json
+node_modules/*
+screenshots/*
+vendor/*
+version.*
