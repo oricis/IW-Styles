@@ -1,0 +1,27 @@
+{
+    "name": "iw-styles",
+    "version": "0.1.0",
+    "description": "this is CSS mini-framework with LESS files",
+    "private": true,
+    "author": "Moisés Alcocer",
+    "license": "MIT",
+    "scripts": {
+        "less-watch": "less-watch-compiler"
+    },
+    "devDependencies": {
+        "less": "^3.11.3",
+        "less-watch-compiler": "^1.14.6"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/oricis/strategia.git"
+    },
+    "keywords": [
+        "css",
+        "less"
+    ],
+    "bugs": {
+        "url": "https://github.com/oricis/iw-styles/issues"
+    },
+    "homepage": "https://github.com/oricis/iw-styles#readme"
+}

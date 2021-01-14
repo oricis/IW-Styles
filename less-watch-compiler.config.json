@@ -1,0 +1,7 @@
+{
+    "watchFolder" : "./src",
+    "outputFolder": "./dist/css",
+    "mainFile"    : "main.less",
+    "minified"    : false,
+    "sourceMap"   : false
+}
