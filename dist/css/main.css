@@ -542,8 +542,47 @@ summary:focus {
  * Box Sizes
  *
  */
+.h-10 {
+  height: 10%;
+}
+.h-20 {
+  height: 20%;
+}
+.h-30 {
+  height: 30%;
+}
+.h-40 {
+  height: 40%;
+}
+.h-50 {
+  height: 50%;
+}
 .h-60 {
   height: 60%;
+}
+.h-70 {
+  height: 70%;
+}
+.h-80 {
+  height: 80%;
+}
+.hm-1 {
+  min-height: 1rem;
+}
+.hm-2 {
+  min-height: 2rem;
+}
+.hm-3 {
+  min-height: 3rem;
+}
+.hm-4 {
+  min-height: 4rem;
+}
+.hm-5 {
+  min-height: 5rem;
+}
+.hm-10 {
+  min-height: 10rem;
 }
 .w-5 {
   width: 5%;
@@ -577,6 +616,24 @@ summary:focus {
 }
 .w-100 {
   width: 100%;
+}
+.wm-1 {
+  min-width: 1rem;
+}
+.wm-2 {
+  min-width: 2rem;
+}
+.wm-3 {
+  min-width: 3rem;
+}
+.wm-4 {
+  min-width: 4rem;
+}
+.wm-5 {
+  min-width: 5rem;
+}
+.wm-10 {
+  min-width: 10rem;
 }
 /*** Tables        ****************************************************/
 body {
