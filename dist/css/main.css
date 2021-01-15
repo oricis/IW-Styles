@@ -608,6 +608,54 @@ summary:focus {
 .pad-10 {
   padding: 10%;
 }
+.pad-b-1 {
+  padding-bottom: 1%;
+}
+.pad-b-2 {
+  padding-bottom: 2%;
+}
+.pad-b-5 {
+  padding-bottom: 5%;
+}
+.pad-b-10 {
+  padding-bottom: 10%;
+}
+.pad-l-1 {
+  padding-left: 1%;
+}
+.pad-l-2 {
+  padding-left: 2%;
+}
+.pad-l-5 {
+  padding-left: 5%;
+}
+.pad-l-10 {
+  padding-left: 10%;
+}
+.pad-r-1 {
+  padding-right: 1%;
+}
+.pad-r-2 {
+  padding-right: 2%;
+}
+.pad-r-5 {
+  padding-right: 5%;
+}
+.pad-r-10 {
+  padding-right: 10%;
+}
+.pad-t-1 {
+  padding-top: 1%;
+}
+.pad-t-2 {
+  padding-top: 2%;
+}
+.pad-t-5 {
+  padding-top: 5%;
+}
+.pad-t-10 {
+  padding-top: 10%;
+}
 /**
  * Box Sizes
  *
