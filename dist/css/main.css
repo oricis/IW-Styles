@@ -58,7 +58,51 @@ html {
   --yellow: yellow;
   --white: white;
 }
-/*** Forms ************************************************************/
+/**
+ * Displays
+ *
+ */
+.contents {
+  display: contents;
+}
+.flex {
+  display: flex;
+}
+.flex-around {
+  justify-content: space-around;
+}
+.flex-both {
+  justify-content: space-between;
+}
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-end {
+  justify-content: flex-end;
+}
+.flex-start {
+  justify-content: start;
+}
+.inline {
+  display: inline;
+}
+.none {
+  display: none !important;
+}
+.align-center {
+  align-items: center;
+}
+/**
+ * Forms
+ *
+ */
 input,
 select,
 textarea {
@@ -260,37 +304,6 @@ picture.center-content,
   display: grid !important;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-}
-.flex {
-  display: flex;
-}
-.flex-around {
-  justify-content: space-around;
-}
-.flex-both {
-  justify-content: space-between;
-}
-.flex-center {
-  align-items: center;
-  justify-content: center;
-}
-.flex-column {
-  flex-direction: column;
-}
-.flex-row {
-  flex-direction: row;
-}
-.flex-end {
-  justify-content: flex-end;
-}
-.flex-start {
-  justify-content: start;
-}
-.inline {
-  display: inline;
-}
-.none {
-  display: none !important;
 }
 .fit-to-lines {
   display: flex;
