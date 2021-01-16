@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date input example with IW-Styles</title>
+
+    <link rel="stylesheet" href="../dist/css/main.css">
+
+    <style>
+        .date-input-box {
+            padding-right: 8%;
+        }
+        .date-input-box input {
+            border-right-width: 0;
+        }
+        .date-input-box input:last-child {
+            border-right-width: 1px;
+        }
+    </style>
+</head>
+
+<body class="flex flex-center">
+    <section class="flex flex-column flex-center bordered rounded pad-5 mw-30 mwx-40 hmx-20">
+        <h3>Time Range Selector</h3>
+
+        <div class="date-input-box
+            flex flex-end bordered rounded pad-2 top-5 wm-25 wmx-25">
+            <strong class="i right-2">From:</strong>
+
+            <div class="contents bg-lavender rounded">
+                <input type="text" class="pad-2 hm-3 wm-5 wmx-5" id="iDay" inputmode="numeric" maxlength="2" name="iDay"
+                    pattern="[0-9]*" required value="" placeholder="dd">
+                <input type="text" class="pad-2 hm-3 wm-5 wmx-5" id="iMonth" inputmode="numeric" maxlength="2" name="iMonth"
+                    pattern="[0-9]*" required value="" placeholder="mm">
+                <input type="text" class="pad-2 hm-3 wm-5 wmx-5" id="iYear" inputmode="numeric" maxlength="4" name="iYear"
+                    pattern="[0-9]*" required value="" placeholder="aaaa">
+            </div>
+        </div>
+
+        <div class="date-input-box
+            flex flex-end bordered rounded pad-2 top-5 wm-25 wmx-25">
+            <strong class="i right-2">To:</strong>
+
+            <div class="contents bg-lavender rounded">
+                <input type="text" class="pad-2 hm-3 wm-5 wmx-5"
+                    id="iDay"
+                    inputmode="numeric"
+                    maxlength="2"
+                    name="iDay"
+                    pattern="[0-9]*"
+                    required
+                    value=""
+                    placeholder="dd">
+                <input type="text" class="pad-2 hm-3 wm-5 wmx-5"
+                    id="iMonth"
+                    inputmode="numeric"
+                    maxlength="2"
+                    name="iMonth"
+                    pattern="[0-9]*"
+                    required
+                    value=""
+                    placeholder="mm">
+                <input type="text" class="pad-2 hm-3 wm-5 wmx-5"
+                    id="iYear"
+                    inputmode="numeric"
+                    maxlength="4"
+                    name="iYear"
+                    pattern="[0-9]*"
+                    required
+                    value=""
+                    placeholder="aaaa">
+            </div>
+        </div>
+    </section>
+</body>
+</html>
