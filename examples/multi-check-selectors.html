@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple checkers selection example with IW-Styles</title>
+
+    <link rel="stylesheet" href="../dist/css/main.css">
+
+    <style>
+        .multi-check-selector input {
+            height      : 2rem;
+            margin-right: .75rem;
+            width       : 2rem;
+        }
+    </style>
+</head>
+<body class="flex flex-center align-center">
+
+    <ul class="multi-check-selector flex flex-column bordered rounded pad-2 wm-30 wmx-30"
+        id="inmotypes"
+        data-route="">
+        <li class="flex align-center">
+            <input type="checkbox" class="" name="inmo-type" value="all">
+            <label class="">
+                Todas
+            </label>
+        </li>
+        <li class="flex align-center top-2 border-top">
+            <input type="checkbox" class="top-2" name="inmo-type" value="">
+            <label class="top-2">
+                Adosado / Casa / Chalet
+            </label>
+        </li>
+        <li class="flex align-center top-2">
+            <input type="checkbox" class="" name="inmo-type" value="">
+            <label class="">
+                Apartamento / Piso
+            </label>
+        </li>
+        <li class="flex align-center top-2">
+            <input type="checkbox" class="" name="inmo-type" value="">
+            <label class="">
+                Ático
+            </label>
+        </li>
+        <li class="flex align-center top-2">
+            <input type="checkbox" class="" name="inmo-type" value="">
+            <label class="">
+                Local comercial / Negocio
+            </label>
+        </li>
+        <li class="flex align-center top-2">
+            <input type="checkbox" class="" name="inmo-type" value="">
+            <label class="">
+                Nave industrial
+            </label>
+        </li>
+        <li class="flex align-center top-2">
+            <input type="checkbox" class="" name="inmo-type" value="">
+            <label class="">
+                Parcela / Solar
+            </label>
+        </li>
+        <li class="flex align-center top-2">
+            <input type="checkbox" class="" name="inmo-type" value="">
+            <label class="">
+                Planta baja
+            </label>
+        </li>
+    </ul>
+</body>
+</html>
