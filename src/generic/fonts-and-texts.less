@@ -1,0 +1,82 @@
+
+/**
+ * Fonts & texts
+ *
+ */
+
+* {
+    color: var(--color-primary);
+    --font-size: 14px;
+}
+
+a:hover,
+.a:hover {
+    text-decoration: underline;
+}
+a,
+.a,
+.pointer,
+[role="button"] {
+    cursor: pointer;
+}
+p {
+    margin-top: .5rem;
+}
+
+.b {
+    font-weight: 800;
+}
+.i {
+    font-style: italic;
+}
+.u {
+    text-decoration: underline;
+}
+
+.cblue,
+.cblue * {
+    color: var(--blue);
+}
+.cgreen,
+.cgreen * {
+    color: var(--green);
+}
+.cgrey,
+.cgrey * {
+    color: var(--grey);
+}
+.cred,
+.cred * {
+    color: var(--red);
+}
+.cnone,
+.cnone:active,
+.cnone:focus,
+.cnone * {
+    color: transparent;
+}
+
+.ind-2 {
+    text-indent: 2%;
+}
+
+.x2 {
+    font-size: calc(var(--font-size) * 2);
+}
+.x-125 {
+    font-size: calc(var(--font-size) * 125 / 100);
+}
+.x-150 {
+    font-size: calc(var(--font-size) * 150 / 100);
+}
+
+.to-uppercase,
+.to-uppercase * {
+    text-transform: uppercase;
+}
+
+@media (min-width: 420px) {
+    .title {
+        font-size: 1.25rem;
+    }
+}
