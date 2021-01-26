@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permissions selector IW-Styles + jQuery</title>
+
+    <link rel="stylesheet" href="../dist/css/main.css">
+    <style>
+        .square-selector {
+            height: 2.5rem;
+            width : 2.8rem;
+        }
+        .permission-group-boxes {
+            align-items: normal;
+        }
+    </style>
+</head>
+<body class="flex flex-center">
+    <article class="flex flex-center flex-column bordered w-60 wm-50 wmx-60">
+        <h1 class="top-5">Permissions selection</h1>
+
+        <div class="permission-group-boxes
+            flex flex-center w-100">
+            <section class="permission-group
+                flex flex-column bordered rounded pad-2 all-5" id="ecommerce-permission-group">
+                <h2>Ecommerce group</h2>
+
+                <section class="top-5 border-bottom pad-0 pad-b-5">
+                    <h4 class="top-5 cblue left-content">Categories</h4>
+                    <div class="flex flex-around align center" id="categories-permissions">
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="categories-C">C</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="categories-R">R</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="categories-U">U</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="categories-D">D</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="categories-ALL">All</div>
+                    </div>
+                </section>
+
+                <section class="top-5 border-bottom pad-0 pad-b-5">
+                    <h4 class="top-5 cblue left-content">Images</h4>
+                    <div class="flex flex-around align center top-1" id="images-permissions">
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="images-C">C</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="images-R">R</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="images-U">U</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="images-D">D</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="images-ALL">All</div>
+                    </div>
+                </section>
+
+                <section class="top-5 border-bottom pad-0 pad-b-5">
+                    <h4 class="top-5 cblue left-content">Products</h4>
+                    <div class="flex flex-around align center top-1" id="products-permissions">
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="products-C">C</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="products-R">R</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="products-U">U</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="products-D">D</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="products-ALL">All</div>
+                    </div>
+                </section>
+
+                <section class="top-5 pad-0 pad-b-5">
+                    <h4 class="top-5 cblue left-content">Variations</h4>
+                    <div class="flex flex-around align center top-1" id="variations-permissions">
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="variations-C">C</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="variations-R">R</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="variations-U">U</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="variations-D">D</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="variations-ALL">All</div>
+                    </div>
+                </section>
+            </section>
+
+            <section class="permission-group
+                flex flex-column bordered rounded pad-2 all-5" id="users-permission-group">
+                <h2>Users group</h2>
+
+                <section class="top-5 border-bottom pad-0 pad-b-5">
+                    <h4 class="top-5 cblue left-content">Roles</h4>
+                    <div class="flex flex-around align center" id="roles-permissions">
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="roles-C">C</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="roles-R">R</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="roles-U">U</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="roles-D">D</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="roles-ALL">All</div>
+                    </div>
+                </section>
+
+                <section class="top-5 pad-0 pad-b-5">
+                    <h4 class="top-5 cblue left-content">Users</h4>
+                    <div class="flex flex-around align center top-1" id="users-permissions">
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="users-C">C</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="users-R">R</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="users-U">U</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="users-D">D</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="users-ALL">All</div>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </article>
+</body>
+</html>
