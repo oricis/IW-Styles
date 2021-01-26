@@ -59,58 +59,126 @@ html {
   --white: white;
 }
 /**
- * Displays
+ * Borders
  *
  */
-.contents {
-  display: contents;
+.border-bottom {
+  border-bottom: 1px solid grey;
 }
-.flex {
-  display: flex;
+.border-left {
+  border-left: 1px solid grey;
 }
-.flex-around {
-  justify-content: space-around;
+.border-right {
+  border-right: 1px solid grey;
 }
-.flex-both {
-  justify-content: space-between;
+.border-top {
+  border-top: 1px solid grey;
 }
-.flex-center {
-  align-items: center;
-  justify-content: center;
+.bordered,
+.border-all {
+  border: 1px solid grey;
 }
-.flex-column {
-  flex-direction: column;
+.no-border,
+.no-border:focus {
+  border: none !important;
+  outline: none;
 }
-.flex-row {
-  flex-direction: row;
+.selected-border {
+  border: 2px solid #373737;
 }
-.flex-end {
-  justify-content: flex-end;
+.rounded {
+  border-radius: 3px;
 }
-.flex-start {
-  justify-content: start;
-}
-.inline {
-  display: inline;
-}
-.none {
-  display: none !important;
-}
-.align-center {
-  align-items: center;
+.circle {
+  border-radius: 50% !important;
 }
 /**
- * Forms
+ * Fonts & texts
  *
  */
-input,
-select,
-textarea {
-  border-width: 1.5px;
+* {
+  color: var(--color-primary);
+  --font-size: 14px;
 }
-input[type=checkbox] {
-  height: 1.2rem;
-  width: 1.2rem;
+a:hover,
+.a:hover {
+  text-decoration: underline;
+}
+a,
+.a,
+.pointer,
+[role="button"] {
+  cursor: pointer;
+}
+p {
+  margin-top: 0.5rem;
+}
+.b {
+  font-weight: 800;
+}
+.i {
+  font-style: italic;
+}
+.u {
+  text-decoration: underline;
+}
+.cblue,
+.cblue * {
+  color: var(--blue);
+}
+.cdarkblue,
+.cdarkblue * {
+  color: var(--darkblue);
+}
+.cgreen,
+.cgreen * {
+  color: var(--green);
+}
+.cgrey,
+.cgrey * {
+  color: var(--grey);
+}
+.cred,
+.cred * {
+  color: var(--red);
+}
+.cwhite,
+.cwhite * {
+  color: white;
+}
+.cyellow,
+.cyellow * {
+  color: var(--yellow);
+}
+.cnone,
+.cnone:active,
+.cnone:focus,
+.cnone * {
+  color: transparent;
+}
+.ind-2 {
+  text-indent: 2%;
+}
+.ind-5 {
+  text-indent: 5%;
+}
+.x2 {
+  font-size: calc(var(--font-size) * 2);
+}
+.x-125 {
+  font-size: calc(var(--font-size) * 125 / 100);
+}
+.x-150 {
+  font-size: calc(var(--font-size) * 150 / 100);
+}
+.to-uppercase,
+.to-uppercase * {
+  text-transform: uppercase;
+}
+@media (min-width: 420px) {
+  .title {
+    font-size: 1.25rem;
+  }
 }
 /*** Fonts / texts ****************************************************/
 p.main {
@@ -325,19 +393,6 @@ form .is-invalid {
 form .warn {
   margin-top: 0.5rem;
 }
-/*** Tables ***********************************************************/
-.striped-rows li:nth-child(even) *,
-.striped-rows li:nth-child(even) div,
-.striped-rows li:nth-child(even) p *,
-.striped-rows li:nth-child(even) p,
-.striped-rows li:nth-child(even),
-.striped-rows tr:nth-child(even) *,
-.striped-rows tr:nth-child(even) div,
-.striped-rows tr:nth-child(even) p *,
-.striped-rows tr:nth-child(even) p,
-.striped-rows tr:nth-child(even) {
-  background: #f2f2f2;
-}
 /*** Tabs *************************************************************/
 .button-tabs {
   display: flex;
@@ -407,113 +462,6 @@ summary:focus {
   align-items: center;
   display: flex;
   justify-content: space-between;
-}
-/**
- * Borders
- *
- */
-.border-bottom {
-  border-bottom: 1px solid grey;
-}
-.border-left {
-  border-left: 1px solid grey;
-}
-.border-right {
-  border-right: 1px solid grey;
-}
-.border-top {
-  border-top: 1px solid grey;
-}
-.bordered,
-.border-all {
-  border: 1px solid grey;
-}
-.no-border,
-.no-border:focus {
-  border: none !important;
-  outline: none;
-}
-.selected-border {
-  border: 2px solid #373737;
-}
-.rounded {
-  border-radius: 3px;
-}
-.circle {
-  border-radius: 50% !important;
-}
-/**
- * Fonts & texts
- *
- */
-* {
-  color: var(--color-primary);
-  --font-size: 14px;
-}
-a:hover,
-.a:hover {
-  text-decoration: underline;
-}
-a,
-.a,
-.pointer,
-[role="button"] {
-  cursor: pointer;
-}
-p {
-  margin-top: 0.5rem;
-}
-.b {
-  font-weight: 800;
-}
-.i {
-  font-style: italic;
-}
-.u {
-  text-decoration: underline;
-}
-.cblue,
-.cblue * {
-  color: var(--blue);
-}
-.cgreen,
-.cgreen * {
-  color: var(--green);
-}
-.cgrey,
-.cgrey * {
-  color: var(--grey);
-}
-.cred,
-.cred * {
-  color: var(--red);
-}
-.cnone,
-.cnone:active,
-.cnone:focus,
-.cnone * {
-  color: transparent;
-}
-.ind-2 {
-  text-indent: 2%;
-}
-.x2 {
-  font-size: calc(var(--font-size) * 2);
-}
-.x-125 {
-  font-size: calc(var(--font-size) * 125 / 100);
-}
-.x-150 {
-  font-size: calc(var(--font-size) * 150 / 100);
-}
-.to-uppercase,
-.to-uppercase * {
-  text-transform: uppercase;
-}
-@media (min-width: 420px) {
-  .title {
-    font-size: 1.25rem;
-  }
 }
 /**
  * Margins
@@ -716,6 +664,28 @@ p {
 }
 .pad-t-10 {
   padding-top: 10%;
+}
+/**
+ * Positions
+ *
+ */
+.pos-abs {
+  position: absolute;
+}
+.pos-fix {
+  position: fixed;
+}
+.pos-inh {
+  position: inherit;
+}
+.pos-rel {
+  position: relative;
+}
+.pos-sta {
+  position: static;
+}
+.pos-sti {
+  position: sticky;
 }
 /**
  * Box Sizes
@@ -934,7 +904,79 @@ p {
 .wmx-50 {
   max-width: 500px;
 }
-/*** Tables        ****************************************************/
+/**
+ * Displays
+ *
+ */
+.contents {
+  display: contents;
+}
+.flex {
+  display: flex;
+}
+.flex-around {
+  justify-content: space-around;
+}
+.flex-both {
+  justify-content: space-between;
+}
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-end {
+  justify-content: flex-end;
+}
+.flex-start {
+  justify-content: start;
+}
+.inline {
+  display: inline;
+}
+.inline-flex {
+  display: inline-flex;
+}
+.none {
+  display: none !important;
+}
+.align-center {
+  align-items: center;
+}
+/**
+ * Forms
+ *
+ */
+input,
+select,
+textarea {
+  border-width: 1.5px;
+}
+input[type=checkbox] {
+  height: 1.2rem;
+  width: 1.2rem;
+}
+/**
+ * Tables
+ *
+ */
+.striped-rows li:nth-child(even) *,
+.striped-rows li:nth-child(even) div,
+.striped-rows li:nth-child(even) p *,
+.striped-rows li:nth-child(even) p,
+.striped-rows li:nth-child(even),
+.striped-rows tr:nth-child(even) *,
+.striped-rows tr:nth-child(even) div,
+.striped-rows tr:nth-child(even) p *,
+.striped-rows tr:nth-child(even) p,
+.striped-rows tr:nth-child(even) {
+  background: #f2f2f2;
+}
 body {
   height: 100vh;
 }
