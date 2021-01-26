@@ -13,13 +13,16 @@
             width : 2.8rem;
         }
         .square-selector:hover {
-            background-color: orange;
+            background-color: #9999ff;
         }
         .permission-group-boxes {
             align-items: normal;
         }
-        .bg-green {
-            background-color: rgb(35, 218, 35);
+        .bg-row-all {
+            background-color: #ccebff
+        }
+        .bg-active {
+            background-color: #008ae6;
         }
     </style>
 </head>
@@ -126,7 +129,7 @@
                 {
                     $(this).toggleClass('bg-active');
                 });
-                $(resourceGroupId).toggleClass('bg-green');
+                $(resourceGroupId).toggleClass('bg-row-all');
             }
 
             function handleSelection()
@@ -143,7 +146,7 @@
                         {
                             $(this).toggleClass('bg-active');
                         });
-                        row.toggleClass('bg-green');
+                        row.toggleClass('bg-row-all');
                     });
                 }
 
