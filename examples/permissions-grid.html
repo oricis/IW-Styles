@@ -18,6 +18,9 @@
         .permission-group-boxes {
             align-items: normal;
         }
+        .bg-green {
+            background-color: rgb(35, 218, 35);
+        }
     </style>
 </head>
 <body class="flex flex-center">
@@ -33,7 +36,7 @@
                 <section class="top-5 border-bottom pad-0 pad-b-5">
                     <h4 class="top-5 cblue left-content left-2">Categories</h4>
                     <div class="resource-permissions
-                        flex flex-around align center" id="categories-permissions">
+                        flex flex-around align center rounded" id="categories-permissions">
                         <div class="square-selector flex flex-center bordered rounded all-2" id="categories-C">C</div>
                         <div class="square-selector flex flex-center bordered rounded all-2" id="categories-R">R</div>
                         <div class="square-selector flex flex-center bordered rounded all-2" id="categories-U">U</div>
@@ -45,7 +48,7 @@
                 <section class="top-5 border-bottom pad-0 pad-b-5">
                     <h4 class="top-5 cblue left-content left-2">Images</h4>
                     <div class="resource-permissions
-                        flex flex-around align center top-1" id="images-permissions">
+                        flex flex-around align center top-1 rounded" id="images-permissions">
                         <div class="square-selector flex flex-center bordered rounded all-2" id="images-C">C</div>
                         <div class="square-selector flex flex-center bordered rounded all-2" id="images-R">R</div>
                         <div class="square-selector flex flex-center bordered rounded all-2" id="images-U">U</div>
@@ -57,7 +60,7 @@
                 <section class="top-5 border-bottom pad-0 pad-b-5">
                     <h4 class="top-5 cblue left-content left-2">Products</h4>
                     <div class="resource-permissions
-                        flex flex-around align center top-1" id="products-permissions">
+                        flex flex-around align center top-1 rounded" id="products-permissions">
                         <div class="square-selector flex flex-center bordered rounded all-2" id="products-C">C</div>
                         <div class="square-selector flex flex-center bordered rounded all-2" id="products-R">R</div>
                         <div class="square-selector flex flex-center bordered rounded all-2" id="products-U">U</div>
@@ -69,7 +72,7 @@
                 <section class="top-5 pad-0 pad-b-5">
                     <h4 class="top-5 cblue left-content left-2">Variations</h4>
                     <div class="resource-permissions
-                        flex flex-around align center top-1" id="variations-permissions">
+                        flex flex-around align center top-1 rounded" id="variations-permissions">
                         <div class="square-selector flex flex-center bordered rounded all-2" id="variations-C">C</div>
                         <div class="square-selector flex flex-center bordered rounded all-2" id="variations-R">R</div>
                         <div class="square-selector flex flex-center bordered rounded all-2" id="variations-U">U</div>
@@ -86,7 +89,7 @@
                 <section class="top-5 border-bottom pad-0 pad-b-5">
                     <h4 class="top-5 cblue left-content left-2">Roles</h4>
                     <div class="resource-permissions
-                        flex flex-around align center" id="roles-permissions">
+                        flex flex-around align center rounded" id="roles-permissions">
                         <div class="square-selector flex flex-center bordered rounded all-2" id="roles-C">C</div>
                         <div class="square-selector flex flex-center bordered rounded all-2" id="roles-R">R</div>
                         <div class="square-selector flex flex-center bordered rounded all-2" id="roles-U">U</div>
@@ -98,7 +101,7 @@
                 <section class="top-5 pad-0 pad-b-5">
                     <h4 class="top-5 cblue left-content left-2">Users</h4>
                     <div class="resource-permissions
-                        flex flex-around align center top-1" id="users-permissions">
+                        flex flex-around align center top-1 rounded" id="users-permissions">
                         <div class="square-selector flex flex-center bordered rounded all-2" id="users-C">C</div>
                         <div class="square-selector flex flex-center bordered rounded all-2" id="users-R">R</div>
                         <div class="square-selector flex flex-center bordered rounded all-2" id="users-U">U</div>
@@ -109,5 +112,62 @@
             </section>
         </div>
     </article>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+    <script>
+        function handlePermissions()
+        {
+            function checkAllOf(resourceGroupId)
+            {
+                const boxes = $(resourceGroupId + ' .square-selector');
+                boxes.each(function ()
+                {
+                    $(this).toggleClass('bg-active');
+                });
+                $(resourceGroupId).toggleClass('bg-green');
+            }
+
+            function handleSelection()
+            {
+                function handleBoxesToSelectAllSelection()
+                {
+                    const boxesAll = $('.resource-permissions .square-selector:last-of-type');
+                    boxesAll.click(function ()
+                    {
+                        const row = $(this).parent();
+                        const rowBoxes = row.children();
+
+                        rowBoxes.each(function ()
+                        {
+                            $(this).toggleClass('bg-active');
+                        });
+                        row.toggleClass('bg-green');
+                    });
+                }
+
+                function handleCrudBoxesSelection()
+                {
+                    const boxes = $('.square-selector')
+                        .not('.resource-permissions .square-selector:last-of-type');
+
+                    boxes.click(function ()
+                    {
+                        $(this).toggleClass('bg-active');
+                    });
+                }
+
+
+                handleBoxesToSelectAllSelection();
+                handleCrudBoxesSelection();
+            }
+
+            checkAllOf('#users-permissions');
+            handleSelection();
+        }
+
+        handlePermissions();
+    </script>
 </body>
 </html>
