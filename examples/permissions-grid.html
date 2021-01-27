@@ -19,7 +19,7 @@
         .permission-group-boxes {
             align-items: normal;
         }
-        .bg-row-all {
+        .bg-active-row {
             background-color: #ccebff
         }
         .bg-active {
@@ -154,7 +154,7 @@
                 {
                     $(this).toggleClass('bg-active');
                 });
-                $(resourceGroupId).toggleClass('bg-row-all');
+                $(resourceGroupId).toggleClass('bg-active-row');
             }
 
             function handleSelection()
@@ -164,15 +164,19 @@
                     const boxesAll = $('.resource-permissions .square-selector:last-of-type');
                     boxesAll.click(function ()
                     {
-                        const rowButtonAllStatus = ($(this).hasClass('bg-active'))
+                        handleResourceRowAllButtonActivation($(this));
+                    });
+
+                    function handleResourceRowAllButtonActivation(allButton)
+                    {
+                        const rowButtonAllStatus = (allButton.hasClass('bg-active'))
                             ? 'selected'
                             : 'unselected';
 
-                        const resourceRow = $(this).parent();
+                        const resourceRow = allButton.parent();
                         const resourceRowCrudOptions = resourceRow.children();
 
-                        resourceRowCrudOptions.each(function ()
-                        {
+                        resourceRowCrudOptions.each(function () {
                             const crudOption = $(this);
 
                             if (rowButtonAllStatus === 'selected') {
@@ -183,11 +187,11 @@
                         });
 
                         if (rowButtonAllStatus === 'selected') {
-                            resourceRow.removeClass('bg-row-all');
+                            resourceRow.removeClass('bg-active-row');
                         } else {
-                            resourceRow.addClass('bg-row-all');
+                            resourceRow.addClass('bg-active-row');
                         }
-                    });
+                    }
                 }
 
                 function handleButtonsToControlAllTheGroup()
@@ -219,7 +223,7 @@
                         {
                             nodeRows.each(function ()
                             {
-                                $(this).addClass('bg-row-all');
+                                $(this).addClass('bg-active-row');
                             });
                             nodePermissions.each(function ()
                             {
@@ -229,10 +233,9 @@
 
                         function unselectAll(nodeRows, nodePermissions)
                         {
-                            console.log('unselectAll()');
                             nodeRows.each(function ()
                             {
-                                $(this).removeClass('bg-row-all');
+                                $(this).removeClass('bg-active-row');
                             });
                             nodePermissions.each(function ()
                             {
@@ -245,6 +248,21 @@
                     handleGroup('#users-permission-group');
                 }
 
+                function getSelectedCrudOptions(resourceButtons)
+                {
+                    const selected = [];
+                    resourceButtons.each(function ()
+                    {
+                        const button = $(this);
+                        if (button.hasClass('bg-active')
+                            && button.text() !== 'All') {
+                            selected.push(button.text());
+                        }
+                    });
+
+                    return selected;
+                }
+
                 function handleCrudOptionsSelection()
                 {
                     const resourceCrudButtons = $('.square-selector')
@@ -253,7 +271,33 @@
                     resourceCrudButtons.click(function ()
                     {
                         const crudOptionButton = $(this);
+                        const crudAllButton = crudOptionButton
+                            .siblings('.square-selector:last-of-type');
+
                         crudOptionButton.toggleClass('bg-active');
+
+                        // Deactivate resource row
+                        if (crudAllButton.hasClass('bg-active')) {
+                            crudAllButton.removeClass('bg-active');
+                            crudAllButton.parent().removeClass('bg-active-row');
+
+                            return;
+                        }
+
+                        // Check if the complete row is selected now
+                        if (isSelectedAllTheCrud(crudOptionButton)) {
+                            crudAllButton.addClass('bg-active');
+                            crudAllButton.parent().addClass('bg-active-row');
+                        }
+
+                        function isSelectedAllTheCrud(clickedButton)
+                        {
+                            const siblingButtons = clickedButton.siblings();
+                            const siblingButtonTexts = getSelectedCrudOptions(siblingButtons);
+
+                            return (siblingButtonTexts.length === 3
+                                && ! siblingButtonTexts.includes(clickedButton.text()));
+                        }
                     });
                 }
 
