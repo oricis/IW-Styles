@@ -3,7 +3,7 @@ $(document).ready(function ()
     function handlePermissions()
     {
         const activeButtonClass = 'bg-active';
-        const activeResourceCrudClass = 'bg-active-row';
+        const activeResourceCrudClass = 'bg-active-container';
 
         function handleSelection()
         {
@@ -22,6 +22,7 @@ $(document).ready(function ()
                         btnUnselectAll.toggleClass('none');
 
                         selectAll(permissionRows, permissions);
+                        $(groupId).addClass(activeResourceCrudClass);
                     });
                     btnUnselectAll.click(function ()
                     {
@@ -29,6 +30,7 @@ $(document).ready(function ()
                         btnSelectAll.toggleClass('none');
 
                         unselectAll(permissionRows, permissions);
+                        $(groupId).removeClass(activeResourceCrudClass);
                     });
 
 
@@ -73,6 +75,8 @@ $(document).ready(function ()
                         .siblings('.square-selector:last-of-type');
 
                     crudOptionButton.toggleClass(activeButtonClass);
+                    const parentGroupOfTheCrud = crudOptionButton.parents('.permission-group');
+                    handleGroupsUI(parentGroupOfTheCrud);
 
                     // Deactivate resource row
                     if (crudAllButton.hasClass(activeButtonClass)) {
@@ -142,6 +146,9 @@ $(document).ready(function ()
                         }
                     });
 
+                    const parentGroupOfTheCrud = allButton.parents('.permission-group');
+                    handleGroupsUI(parentGroupOfTheCrud);
+
                     if (rowButtonAllStatus === 'selected') {
                         resourceRow.removeClass(activeResourceCrudClass);
                     } else {
@@ -149,6 +156,53 @@ $(document).ready(function ()
                     }
                 }
             }
+
+            function handleGroupsUI(groupNode)
+            {
+                setTimeout(() => {
+                    if (isEachCrudSelectedOnTheGroup(groupNode)) {
+                        setGroupAsAllSelected(groupNode);
+                    } else {
+                        setGroupAsSomeUnselected(groupNode);
+                    }
+                }, 5);
+
+
+                function isEachCrudSelectedOnTheGroup(groupNode)
+                {
+                    let flag = true;
+
+                    const allButtons = groupNode.find('.square-selector:last-of-type');
+                    allButtons.each(function ()
+                    {
+                        const button = $(this);
+                        if (! button.hasClass(activeButtonClass)) {
+                            flag = false;
+                        }
+                    });
+
+                    return flag;
+                }
+
+                function setGroupAsAllSelected(groupNode)
+                {
+                    const groupButtons = groupNode.find('.button-group button');
+                    $(groupButtons[0]).addClass('none');
+                    $(groupButtons[1]).removeClass('none');
+
+                    groupNode.addClass(activeResourceCrudClass);
+                }
+
+                function setGroupAsSomeUnselected(groupNode)
+                {
+                    const groupButtons = groupNode.find('.button-group button');
+                    $(groupButtons[0]).removeClass('none');
+                    $(groupButtons[1]).addClass('none');
+
+                    groupNode.removeClass(activeResourceCrudClass);
+                }
+            }
+
 
 
             handleResourceRowAllButtons();
