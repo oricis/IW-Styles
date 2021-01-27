@@ -34,6 +34,10 @@ Some examples are available on the "examples" directory.
 
 ***
 
+![permissions](https://user-images.githubusercontent.com/7187599/106063917-496dfc00-60f9-11eb-9ca3-193b47c1206e.png)
+
+***
+
 ### Extends and LESS compilation
 
 To compile LESS files I use "node + less watch compiler".
