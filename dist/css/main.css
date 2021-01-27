@@ -913,7 +913,6 @@ summary:focus {
 .wmx-80 {
   max-width: 800px;
 }
-
 /**
  * Displays
  *
@@ -955,8 +954,14 @@ summary:focus {
 .none {
   display: none !important;
 }
+.align-bottom {
+  align-items: flex-end;
+}
 .align-center {
   align-items: center;
+}
+.align-top {
+  align-items: flex-start;
 }
 /**
  * Forms
