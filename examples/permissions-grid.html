@@ -147,14 +147,17 @@
     <script>
         function handlePermissions()
         {
+            const activeButtonClass = 'bg-active';
+            const activeResourceCrudClass = 'bg-active-row';
+
             function toggleResourcePermissions(resourceGroupId)
             {
                 const boxes = $(resourceGroupId + ' .square-selector');
                 boxes.each(function ()
                 {
-                    $(this).toggleClass('bg-active');
+                    $(this).toggleClass(activeButtonClass);
                 });
-                $(resourceGroupId).toggleClass('bg-active-row');
+                $(resourceGroupId).toggleClass(activeResourceCrudClass);
             }
 
             function handleSelection()
@@ -188,11 +191,11 @@
                         {
                             nodeRows.each(function ()
                             {
-                                $(this).addClass('bg-active-row');
+                                $(this).addClass(activeResourceCrudClass);
                             });
                             nodePermissions.each(function ()
                             {
-                                $(this).addClass('bg-active');
+                                $(this).addClass(activeButtonClass);
                             });
                         }
 
@@ -200,11 +203,11 @@
                         {
                             nodeRows.each(function ()
                             {
-                                $(this).removeClass('bg-active-row');
+                                $(this).removeClass(activeResourceCrudClass);
                             });
                             nodePermissions.each(function ()
                             {
-                                $(this).removeClass('bg-active');
+                                $(this).removeClass(activeButtonClass);
                             });
                         }
                     }
@@ -224,20 +227,20 @@
                         const crudAllButton = crudOptionButton
                             .siblings('.square-selector:last-of-type');
 
-                        crudOptionButton.toggleClass('bg-active');
+                        crudOptionButton.toggleClass(activeButtonClass);
 
                         // Deactivate resource row
-                        if (crudAllButton.hasClass('bg-active')) {
-                            crudAllButton.removeClass('bg-active');
-                            crudAllButton.parent().removeClass('bg-active-row');
+                        if (crudAllButton.hasClass(activeButtonClass)) {
+                            crudAllButton.removeClass(activeButtonClass);
+                            crudAllButton.parent().removeClass(activeResourceCrudClass);
 
                             return;
                         }
 
                         // Check if the complete row is selected now
                         if (isSelectedAllTheCrud(crudOptionButton)) {
-                            crudAllButton.addClass('bg-active');
-                            crudAllButton.parent().addClass('bg-active-row');
+                            crudAllButton.addClass(activeButtonClass);
+                            crudAllButton.parent().addClass(activeResourceCrudClass);
                         }
 
                         function isSelectedAllTheCrud(clickedButton)
@@ -248,7 +251,7 @@
                                 resourceButtons.each(function ()
                                 {
                                     const button = $(this);
-                                    if (button.hasClass('bg-active')
+                                    if (button.hasClass(activeButtonClass)
                                         && button.text() !== 'All') {
                                         selected.push(button.text());
                                     }
@@ -276,7 +279,7 @@
 
                     function handleResourceRowAllButtonActivation(allButton)
                     {
-                        const rowButtonAllStatus = (allButton.hasClass('bg-active'))
+                        const rowButtonAllStatus = (allButton.hasClass(activeButtonClass))
                             ? 'selected'
                             : 'unselected';
 
@@ -288,16 +291,16 @@
                             const crudOption = $(this);
 
                             if (rowButtonAllStatus === 'selected') {
-                                crudOption.removeClass('bg-active');
+                                crudOption.removeClass(activeButtonClass);
                             } else {
-                                crudOption.addClass('bg-active');
+                                crudOption.addClass(activeButtonClass);
                             }
                         });
 
                         if (rowButtonAllStatus === 'selected') {
-                            resourceRow.removeClass('bg-active-row');
+                            resourceRow.removeClass(activeResourceCrudClass);
                         } else {
-                            resourceRow.addClass('bg-active-row');
+                            resourceRow.addClass(activeResourceCrudClass);
                         }
                     }
                 }
