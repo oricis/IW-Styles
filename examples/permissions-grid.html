@@ -159,7 +159,7 @@
 
             function handleSelection()
             {
-                function handleBoxesToSelectAllSelection()
+                function handleResourceRowAllButtons()
                 {
                     const boxesAll = $('.resource-permissions .square-selector:last-of-type');
                     boxesAll.click(function ()
@@ -230,7 +230,7 @@
                     handleGroup('#users-permission-group');
                 }
 
-                function handleCrudBoxesSelection()
+                function handleCrudOptionsSelection()
                 {
                     const boxes = $('.square-selector')
                         .not('.resource-permissions .square-selector:last-of-type');
@@ -242,9 +242,9 @@
                 }
 
 
-                handleBoxesToSelectAllSelection();
+                handleResourceRowAllButtons();
                 handleButtonsToControlAllTheGroup();
-                handleCrudBoxesSelection();
+                handleCrudOptionsSelection();
             }
 
             handleSelection();
