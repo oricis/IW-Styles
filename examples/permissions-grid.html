@@ -34,7 +34,8 @@
         <div class="permission-group-boxes
             flex flex-center w-100">
             <section class="permission-group
-                flex flex-column bordered rounded pad-2 all-5" id="ecommerce-permission-group">
+                flex flex-column bordered rounded pad-2 all-5"
+                id="ecommerce-permission-group">
                 <h2>Ecommerce group</h2>
 
                 <section class="top-5 border-bottom pad-0 pad-b-5">
@@ -85,18 +86,21 @@
                     </div>
                 </section>
 
-                <div class="button-group h-100 flex align-bottom">
-                    <button class="btn btn-primary w-100">
-                        Select all on the group
+                <div class="button-group no-margin h-100 flex align-bottom">
+                    <button class="select-all-btn
+                        btn btn-primary w-100">
+                        Select all the group
                     </button>
-                    <button class="btn btn-primary w-100 none">
-                        Deselect all on the group
+                    <button class="unselect-all-btn
+                        btn btn-primary w-100 none">
+                        Deselect all the group
                     </button>
                 </div>
             </section>
 
             <section class="permission-group
-                flex flex-column bordered rounded pad-2 all-5" id="users-permission-group">
+                flex flex-column bordered rounded pad-2 all-5"
+                id="users-permission-group">
                 <h2>Users group</h2>
 
                 <section class="top-5 border-bottom pad-0 pad-b-5">
@@ -123,12 +127,14 @@
                     </div>
                 </section>
 
-                <div class="button-group h-100 flex align-bottom">
-                    <button class="btn btn-primary w-100">
-                        Select all on the group
+                <div class="button-group no-margin h-100 flex align-bottom">
+                    <button class="select-all-btn
+                        btn btn-primary w-100">
+                        Select all the group
                     </button>
-                    <button class="btn btn-primary w-100 none">
-                        Deselect all on the group
+                    <button class="unselect-all-btn
+                        btn btn-primary w-100 none">
+                        Deselect all the group
                     </button>
                 </div>
             </section>
@@ -169,6 +175,61 @@
                     });
                 }
 
+                function handleButtonsToControlAllTheGroup()
+                {
+                    function handleGroup(groupId)
+                    {
+                        const btnSelectAll   = $(groupId + ' .select-all-btn');
+                        const btnUnselectAll = $(groupId + ' .unselect-all-btn');
+                        const permissions    = $(groupId + ' .square-selector');
+                        const permissionRows = $(groupId + ' .resource-permissions');
+
+                        btnSelectAll.click(function ()
+                        {
+                            $(this).toggleClass('none');
+                            btnUnselectAll.toggleClass('none');
+
+                            selectAll(permissionRows, permissions);
+                        });
+                        btnUnselectAll.click(function ()
+                        {
+                            $(this).toggleClass('none');
+                            btnSelectAll.toggleClass('none');
+
+                            unselectAll(permissionRows, permissions);
+                        });
+
+
+                        function selectAll(nodeRows, nodePermissions)
+                        {
+                            nodeRows.each(function ()
+                            {
+                                $(this).addClass('bg-row-all');
+                            });
+                            nodePermissions.each(function ()
+                            {
+                                $(this).addClass('bg-active');
+                            });
+                        }
+
+                        function unselectAll(nodeRows, nodePermissions)
+                        {
+                            console.log('unselectAll()');
+                            nodeRows.each(function ()
+                            {
+                                $(this).removeClass('bg-row-all');
+                            });
+                            nodePermissions.each(function ()
+                            {
+                                $(this).removeClass('bg-active');
+                            });
+                        }
+                    }
+
+                    handleGroup('#ecommerce-permission-group');
+                    handleGroup('#users-permission-group');
+                }
+
                 function handleCrudBoxesSelection()
                 {
                     const boxes = $('.square-selector')
@@ -182,6 +243,7 @@
 
 
                 handleBoxesToSelectAllSelection();
+                handleButtonsToControlAllTheGroup();
                 handleCrudBoxesSelection();
             }
 
