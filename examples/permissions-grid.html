@@ -164,15 +164,29 @@
                     const boxesAll = $('.resource-permissions .square-selector:last-of-type');
                     boxesAll.click(function ()
                     {
+                        const rowButtonAllStatus = ($(this).hasClass('bg-active'))
+                            ? 'selected'
+                            : 'unselected';
+
                         const resourceRow = $(this).parent();
                         const resourceRowCrudOptions = resourceRow.children();
 
                         resourceRowCrudOptions.each(function ()
                         {
                             const crudOption = $(this);
-                            crudOption.toggleClass('bg-active');
+
+                            if (rowButtonAllStatus === 'selected') {
+                                crudOption.removeClass('bg-active');
+                            } else {
+                                crudOption.addClass('bg-active');
+                            }
                         });
-                        resourceRow.toggleClass('bg-row-all');
+
+                        if (rowButtonAllStatus === 'selected') {
+                            resourceRow.removeClass('bg-row-all');
+                        } else {
+                            resourceRow.addClass('bg-row-all');
+                        }
                     });
                 }
 
@@ -233,12 +247,13 @@
 
                 function handleCrudOptionsSelection()
                 {
-                    const boxes = $('.square-selector')
+                    const resourceCrudButtons = $('.square-selector')
                         .not('.resource-permissions .square-selector:last-of-type');
 
-                    boxes.click(function ()
+                    resourceCrudButtons.click(function ()
                     {
-                        $(this).toggleClass('bg-active');
+                        const crudOptionButton = $(this);
+                        crudOptionButton.toggleClass('bg-active');
                     });
                 }
 
