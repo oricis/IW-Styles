@@ -147,7 +147,7 @@
     <script>
         function handlePermissions()
         {
-            function checkAllOf(resourceGroupId)
+            function toggleResourcePermissions(resourceGroupId)
             {
                 const boxes = $(resourceGroupId + ' .square-selector');
                 boxes.each(function ()
@@ -247,8 +247,10 @@
                 handleCrudBoxesSelection();
             }
 
-            checkAllOf('#users-permissions');
             handleSelection();
+
+            // init resource groups
+            toggleResourcePermissions('#users-permissions');
         }
 
         handlePermissions();
