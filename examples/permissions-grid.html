@@ -164,14 +164,15 @@
                     const boxesAll = $('.resource-permissions .square-selector:last-of-type');
                     boxesAll.click(function ()
                     {
-                        const row = $(this).parent();
-                        const rowBoxes = row.children();
+                        const resourceRow = $(this).parent();
+                        const resourceRowCrudOptions = resourceRow.children();
 
-                        rowBoxes.each(function ()
+                        resourceRowCrudOptions.each(function ()
                         {
-                            $(this).toggleClass('bg-active');
+                            const crudOption = $(this);
+                            crudOption.toggleClass('bg-active');
                         });
-                        row.toggleClass('bg-row-all');
+                        resourceRow.toggleClass('bg-row-all');
                     });
                 }
 
