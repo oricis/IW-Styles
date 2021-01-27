@@ -159,41 +159,6 @@
 
             function handleSelection()
             {
-                function handleResourceRowAllButtons()
-                {
-                    const boxesAll = $('.resource-permissions .square-selector:last-of-type');
-                    boxesAll.click(function ()
-                    {
-                        handleResourceRowAllButtonActivation($(this));
-                    });
-
-                    function handleResourceRowAllButtonActivation(allButton)
-                    {
-                        const rowButtonAllStatus = (allButton.hasClass('bg-active'))
-                            ? 'selected'
-                            : 'unselected';
-
-                        const resourceRow = allButton.parent();
-                        const resourceRowCrudOptions = resourceRow.children();
-
-                        resourceRowCrudOptions.each(function () {
-                            const crudOption = $(this);
-
-                            if (rowButtonAllStatus === 'selected') {
-                                crudOption.removeClass('bg-active');
-                            } else {
-                                crudOption.addClass('bg-active');
-                            }
-                        });
-
-                        if (rowButtonAllStatus === 'selected') {
-                            resourceRow.removeClass('bg-active-row');
-                        } else {
-                            resourceRow.addClass('bg-active-row');
-                        }
-                    }
-                }
-
                 function handleButtonsToControlAllTheGroup()
                 {
                     function handleGroup(groupId)
@@ -248,21 +213,6 @@
                     handleGroup('#users-permission-group');
                 }
 
-                function getSelectedCrudOptions(resourceButtons)
-                {
-                    const selected = [];
-                    resourceButtons.each(function ()
-                    {
-                        const button = $(this);
-                        if (button.hasClass('bg-active')
-                            && button.text() !== 'All') {
-                            selected.push(button.text());
-                        }
-                    });
-
-                    return selected;
-                }
-
                 function handleCrudOptionsSelection()
                 {
                     const resourceCrudButtons = $('.square-selector')
@@ -292,6 +242,21 @@
 
                         function isSelectedAllTheCrud(clickedButton)
                         {
+                            function getSelectedCrudOptions(resourceButtons)
+                            {
+                                const selected = [];
+                                resourceButtons.each(function ()
+                                {
+                                    const button = $(this);
+                                    if (button.hasClass('bg-active')
+                                        && button.text() !== 'All') {
+                                        selected.push(button.text());
+                                    }
+                                });
+
+                                return selected;
+                            }
+
                             const siblingButtons = clickedButton.siblings();
                             const siblingButtonTexts = getSelectedCrudOptions(siblingButtons);
 
@@ -299,6 +264,42 @@
                                 && ! siblingButtonTexts.includes(clickedButton.text()));
                         }
                     });
+                }
+
+                function handleResourceRowAllButtons()
+                {
+                    const boxesAll = $('.resource-permissions .square-selector:last-of-type');
+                    boxesAll.click(function ()
+                    {
+                        handleResourceRowAllButtonActivation($(this));
+                    });
+
+                    function handleResourceRowAllButtonActivation(allButton)
+                    {
+                        const rowButtonAllStatus = (allButton.hasClass('bg-active'))
+                            ? 'selected'
+                            : 'unselected';
+
+                        const resourceRow = allButton.parent();
+                        const resourceRowCrudOptions = resourceRow.children();
+
+                        resourceRowCrudOptions.each(function ()
+                        {
+                            const crudOption = $(this);
+
+                            if (rowButtonAllStatus === 'selected') {
+                                crudOption.removeClass('bg-active');
+                            } else {
+                                crudOption.addClass('bg-active');
+                            }
+                        });
+
+                        if (rowButtonAllStatus === 'selected') {
+                            resourceRow.removeClass('bg-active-row');
+                        } else {
+                            resourceRow.addClass('bg-active-row');
+                        }
+                    }
                 }
 
 
