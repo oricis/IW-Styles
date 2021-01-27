@@ -150,16 +150,6 @@
             const activeButtonClass = 'bg-active';
             const activeResourceCrudClass = 'bg-active-row';
 
-            function toggleResourcePermissions(resourceGroupId)
-            {
-                const boxes = $(resourceGroupId + ' .square-selector');
-                boxes.each(function ()
-                {
-                    $(this).toggleClass(activeButtonClass);
-                });
-                $(resourceGroupId).toggleClass(activeResourceCrudClass);
-            }
-
             function handleSelection()
             {
                 function handleButtonsToControlAllTheGroup()
@@ -310,6 +300,17 @@
                 handleButtonsToControlAllTheGroup();
                 handleCrudOptionsSelection();
             }
+
+            function toggleResourcePermissions(resourceGroupId)
+            {
+                const boxes = $(resourceGroupId + ' .square-selector');
+                boxes.each(function ()
+                {
+                    $(this).toggleClass(activeButtonClass);
+                });
+                $(resourceGroupId).toggleClass(activeResourceCrudClass);
+            }
+
 
             handleSelection();
 
