@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permissions selector IW-Styles + jQuery</title>
+
+    <link rel="stylesheet" href="public/css/buttons-bootstrap-based.css">
+    <link rel="stylesheet" href="../dist/css/main.css">
+    <style>
+        .buttom-labels div {
+            padding-right: 3%;
+            width        : 2.8rem;
+            writing-mode : vertical-rl;
+        }
+        .square-selector {
+            cursor: pointer;
+            height: 2.5rem;
+            width : 2.8rem;
+        }
+        .square-selector:hover {
+            background-color: #9999ff;
+        }
+        .permission-group {
+            min-width: 42%;
+        }
+        .permission-group-boxes {
+            align-items: normal;
+        }
+        .permission-group-boxes * {
+            background-color: transparent;
+        }
+        .bg-active-container {
+            background-color: #ccebff;
+        }
+        .bg-active {
+            background-color: #008ae6;
+        }
+    </style>
+</head>
+<body class="flex flex-center">
+    <article class="flex flex-center flex-column bordered w-70 wm-50 wmx-70">
+        <h1 class="top-5">Permissions selection</h1>
+
+        <div class="permission-group-boxes
+            flex flex-center w-100">
+            <section class="permission-group
+                flex flex-column bordered rounded pad-2 all-5 both-0 right-5"
+                id="ecommerce-permission-group">
+                <h2>Ecommerce group</h2>
+
+                <div class="buttom-labels flex flex-end align-bottom pad-t-10">
+                    <div>Create</div>
+                    <div>Read</div>
+                    <div>Update</div>
+                    <div>Delete</div>
+                    <div></div>
+                </div>
+
+                <section class="top-5 border-bottom pad-0 pad-b-5 flex flex-end">
+                    <h4 class="top-5 cblue right-2">Categories</h4>
+                    <div class="resource-permissions
+                        flex flex-around align center rounded" id="categories-permissions">
+                        <div class="square-selector flex flex-center bordered rounded all-2 bg-active" id="categories-C">C</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="categories-R">R</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="categories-U">U</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="categories-D">D</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="categories-ALL">All</div>
+                    </div>
+                </section>
+
+                <section class="top-5 border-bottom pad-0 pad-b-5 flex flex-end">
+                    <h4 class="top-5 cblue right-2">Images</h4>
+                    <div class="resource-permissions
+                        flex flex-around align center top-1 rounded" id="images-permissions">
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="images-C">C</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2 bg-active" id="images-R">R</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2 bg-active" id="images-U">U</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="images-D">D</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="images-ALL">All</div>
+                    </div>
+                </section>
+
+                <section class="top-5 border-bottom pad-0 pad-b-5 flex flex-end">
+                    <h4 class="top-5 cblue right-2">Products</h4>
+                    <div class="resource-permissions
+                        flex flex-around align center top-1 rounded" id="products-permissions">
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="products-C">C</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="products-R">R</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="products-U">U</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="products-D">D</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="products-ALL">All</div>
+                    </div>
+                </section>
+
+                <section class="top-5 pad-0 pad-b-5 flex flex-end">
+                    <h4 class="top-5 cblue right-2">Variations</h4>
+                    <div class="resource-permissions
+                        flex flex-around align center top-1 rounded" id="variations-permissions">
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="variations-C">C</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="variations-R">R</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="variations-U">U</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="variations-D">D</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="variations-ALL">All</div>
+                    </div>
+                </section>
+
+                <div class="button-group no-margin h-100 flex align-bottom">
+                    <button class="select-all-btn
+                        btn btn-primary w-100">
+                        Select all the group
+                    </button>
+                    <button class="unselect-all-btn
+                        btn btn-primary w-100 none">
+                        Deselect all the group
+                    </button>
+                </div>
+            </section>
+
+            <section class="permission-group
+                flex flex-column bordered rounded pad-2 all-5 both-0"
+                id="users-permission-group">
+                <h2>Users group</h2>
+
+                <div class="buttom-labels flex flex-end align-bottom pad-t-10">
+                    <div>Create</div>
+                    <div>Read</div>
+                    <div>Update</div>
+                    <div>Delete</div>
+                    <div></div>
+                </div>
+
+                <section class="top-5 border-bottom pad-0 pad-b-5 flex flex-end">
+                    <h4 class="top-5 cblue right-2">Roles</h4>
+                    <div class="resource-permissions
+                        flex flex-around align center rounded" id="roles-permissions">
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="roles-C">C</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="roles-R">R</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="roles-U">U</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="roles-D">D</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="roles-ALL">All</div>
+                    </div>
+                </section>
+
+                <section class="top-5 pad-0 pad-b-5 flex flex-end">
+                    <h4 class="top-5 cblue right-2">Users</h4>
+                    <div class="resource-permissions
+                        flex flex-around align center top-1 rounded" id="users-permissions">
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="users-C">C</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="users-R">R</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="users-U">U</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="users-D">D</div>
+                        <div class="square-selector flex flex-center bordered rounded all-2" id="users-ALL">All</div>
+                    </div>
+                </section>
+
+                <div class="button-group no-margin h-100 flex align-bottom">
+                    <button class="select-all-btn
+                        btn btn-primary w-100">
+                        Select all the group
+                    </button>
+                    <button class="unselect-all-btn
+                        btn btn-primary w-100 none">
+                        Deselect all the group
+                    </button>
+                </div>
+            </section>
+        </div>
+    </article>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script defer src="./public/js/permissions-grid.js"></script>
+</body>
+</html>
