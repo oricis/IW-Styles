@@ -5,15 +5,16 @@
     box-sizing  : border-box;
     font-family : 'Nunito', sans-serif;
     font-weight : 200;
-    list-style-type: none;
     margin      : 0;
     padding     : 0;
     text-align  : center;
     text-decoration : none;
 }
-html,
+
 body {
     font-size: 14px;
+    height   : 100%;
+    position : relative;
 }
 body * {
     background: #fff;
@@ -33,4 +34,14 @@ h1,h2,h3,h4,h5,h6,
 strong,
 strong * {
     font-weight : 600;
+}
+li {
+    list-style-type: none;
+}
+figcaption,
+figure {
+    text-align: center;
+}
+.disc li {
+    list-style: disc;
 }
