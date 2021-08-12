@@ -60,6 +60,7 @@ $(document).ready(function ()
                 }
 
                 handleGroup('#ecommerce-permission-group');
+                handleGroup('#pages-permission-group');
                 handleGroup('#users-permission-group');
             }
 
