@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page content on tabs</title>
+
+    <link rel="stylesheet" href="../dist/css/main.css">
+    <style>
+        * {
+            font-size: 16px;
+        }
+
+        .component.page-tabs {
+
+        }
+        .component.page-tabs .tab-controls {
+            display : flex;
+        }
+        .component.page-tabs .tab-controls li {
+            border        : 1px solid grey;
+            border-bottom : none;
+            border-right  : none;
+            padding       : 9px 2rem;
+            width         : fit-content;
+        }
+        .component.page-tabs .tab-controls li:hover {
+            background  : rgb(192, 208, 253);
+            cursor      : pointer;
+        }
+        .component.page-tabs .tab-controls li,
+        .component.page-tabs .tab-controls li:hover * {
+            background: transparent;
+        }
+        .component.page-tabs .tab-controls li a {
+            text-decoration: none;
+        }
+        .component.page-tabs .tab-controls li:last-child {
+            border-radius : 0 9px 0 0;
+            border-right  : 1px solid grey;
+        }
+        .component.page-tabs .tab-controls .active,
+        .component.page-tabs .tab-controls .active * {
+            background  : rgb(108, 108, 108);
+            color       : white;
+        }
+
+        .component.page-tabs .tab-contents {
+            min-height: 50vh;
+        }
+    </style>
+</head>
+<body>
+    <main class="w-100 wmx-80 all-5 both-auto">
+        <section class="component page-tabs">
+            <h3 hidden>Contenidos de la página</h3>
+            <ul class="tab-controls">
+                <li class="tab-control active" data-target="tab-1">Uno</li>
+                <li class="tab-control" data-target="tab-2">Dos</li>
+                <li class="tab-control" data-target="tab-3">Tres</li>
+            </ul>
+
+            <div class="tab-contents pad-5 pad-both-2 bordered">
+                <article class="tab-content" id="tab-1">
+                    <h3>Content of first</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, est assumenda dolorem repudiandae
+                        itaque, vitae ipsum incidunt dolorum similique, minima eum? Consequatur ad praesentium asperiores
+                        repudiandae minima eligendi voluptatum qui!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, est assumenda dolorem repudiandae
+                        itaque, vitae ipsum incidunt dolorum similique, minima eum? Consequatur ad praesentium asperiores
+                        repudiandae minima eligendi voluptatum qui!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, est assumenda dolorem repudiandae
+                        itaque, vitae ipsum incidunt dolorum similique, minima eum? Consequatur ad praesentium asperiores
+                        repudiandae minima eligendi voluptatum qui!</p>
+                </article>
+                <article class="tab-content" id="tab-2" hidden="true">
+                    <h3>Content of second</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque inventore maiores assumenda sed odit
+                        officia, obcaecati ex repellendus aliquam possimus praesentium nihil ipsam vel dolores officiis
+                        sapiente sint laborum ea!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, est assumenda dolorem repudiandae
+                        itaque, vitae ipsum incidunt dolorum similique, minima eum? Consequatur ad praesentium asperiores
+                        repudiandae minima eligendi voluptatum qui!</p>
+                </article>
+                <article class="tab-content" id="tab-3" hidden="true">
+                    <h3>Content of third</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat aut incidunt odit voluptates
+                        molestias sint eum corrupti architecto culpa ex voluptatum sequi sunt quidem placeat expedita esse
+                        tempore, ab in!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odit earum beatae optio. Assumenda aliquam consequuntur debitis labore! Labore reiciendis blanditiis magnam corporis quae, debitis ipsa quis exercitationem omnis optio!</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function handleTabControls()
+        {
+            const tabControls = qsa('.tab-controls .tab-control');
+            tabControls.forEach(tabControl =>
+            {
+                tabControl.addEventListener('click', function ()
+                {
+                    changeActiveTabControl(tabControl);
+
+                    const contentTabId = tabControl.dataset.target;
+                    changeVisibleContentTab(contentTabId);
+                });
+            });
+
+            function changeActiveTabControl(clickedTabControl) // void
+            {
+                tabControls.forEach(tabControl => // void
+                {
+                    tabControl.classList.remove('active');
+                });
+                clickedTabControl.classList.add('active');
+            }
+            function changeVisibleContentTab(contentTabId) // void
+            {
+                const contentTabs = qsa('.tab-contents .tab-content');
+                contentTabs.forEach(contentTab => // void
+                {
+                    contentTab.hidden = (contentTab.getAttribute('id') !== contentTabId);
+                });
+            }
+        }
+        function qsa(selector) // js nodes
+        {
+            return document.querySelectorAll(selector);
+        }
+
+        document.addEventListener('DOMContentLoaded', handleTabControls);
+    </script>
+</body>
+</html>
