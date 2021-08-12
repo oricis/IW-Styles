@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="../dist/css/main.css">
 
     <style>
-        .images {
-            min-width: 96%;
+        .images-shadow,
+        .images-container {
+            min-width : 96%;
+            width     : 102%;
         }
-        .images img,
+        .images-container img,
         .images-shadow .shadow {
             height: 180px;
             width : 180px;
@@ -35,11 +37,13 @@
     </script>
 </head>
 <body>
+    <h1 class="top-2">Sortable Gallery (with jQuery + jQuery UI)</h1>
+
     <section class="sortable-gallery flex flex-column flex-center pad-5">
         <div>
             <h1>Available images</h1>
         </div>
-        <div class="images
+        <div class="images-container
             flex flex-center top-5 bordered rounded pad-1"
             id="sortable">
             <div class="image-box bordered rounded all-1 pad-1 sortable">
@@ -89,7 +93,7 @@
             </div>
         </div>
         <div class="images-shadow
-            flex flex-center top-5 bordered rounded pad-1">
+            flex flex-center top-2 bordered rounded pad-1">
             <div class="bordered rounded all-1 pad-1">
                 <div class="shadow"></div>
             </div>
