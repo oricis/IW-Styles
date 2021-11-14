@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortable Gallery (with jQuery UI)</title>
+
+    <link rel="stylesheet" href="../dist/css/main.css">
+    <script src="./public/js/DragAndDrop.js"></script>
+
+    <style>
+        .draggable-item {
+            margin: 9px;
+        }
+        .images-shadow all-1 pad-1,
+        .images-container {
+            min-width : 96%;
+            width     : 102%;
+        }
+        .images-container img {
+            height: 180px;
+            width : 180px;
+        }
+        .sortable-items .shadow {
+            height    : 250px;
+            width     : fit-content;
+            min-width : 198px;
+        }
+        .draggable-item:hover {
+            background-color  : rgb(234, 243, 255);
+            cursor            : pointer;
+        }
+        .draggable-item:hover * {
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="top-2">Sortable Gallery (with HTML5 Drag & Drop)</h1>
+
+    <section class="sortable-gallery flex flex-column flex-center pad-5">
+        <div>
+            <h1>Available images</h1>
+        </div>
+        <div class="sortable-items
+            images-container
+            flex flex-center top-5 bordered rounded pad-1">
+
+            <div class="shadow all-1 rounded bordered">
+                <div class="draggable-item">
+                    <figure>
+                        <img src="./public/images/placeholder.png" alt="image 1" class="rounded">
+                        <figcaption>Lorem ipsum sit amet</figcaption>
+                    </figure>
+                    <p class="pad-2 bg-lavender rounded">
+                        Position: <strong class="position">1</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="shadow all-1 rounded bordered">
+                <div class="draggable-item">
+                    <figure>
+                        <img src="./public/images/placeholder.png" alt="image 1" class="rounded">
+                        <figcaption>Lorem ipsum sit amet</figcaption>
+                    </figure>
+                    <p class="pad-2 bg-lavender rounded">
+                        Position: <strong class="position">2</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="shadow all-1 rounded bordered">
+                <div class="draggable-item">
+                    <figure>
+                        <img src="./public/images/placeholder.png" alt="image 1" class="rounded">
+                        <figcaption>Lorem ipsum sit amet</figcaption>
+                    </figure>
+                    <p class="pad-2 bg-lavender rounded">
+                        Position: <strong class="position">3</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="shadow all-1 rounded bordered">
+                <div class="draggable-item">
+                    <figure>
+                        <img src="./public/images/placeholder.png" alt="image 1" class="rounded">
+                        <figcaption>Lorem ipsum sit amet</figcaption>
+                    </figure>
+                    <p class="pad-2 bg-lavender rounded">
+                        Position: <strong class="position">4</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="shadow all-1 rounded bordered">
+                <div class="draggable-item">
+                    <figure>
+                        <img src="./public/images/placeholder.png" alt="image 1" class="rounded">
+                        <figcaption>Lorem ipsum sit amet</figcaption>
+                    </figure>
+                    <p class="pad-2 bg-lavender rounded">
+                        Position: <strong class="position">5</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="sortable-items
+            images-container
+            flex flex-center top-2 bordered rounded pad-1">
+
+            <div class="shadow all-1 rounded bordered"></div>
+            <div class="shadow all-1 rounded bordered"></div>
+            <div class="shadow all-1 rounded bordered"></div>
+            <div class="shadow all-1 rounded bordered"></div>
+            <div class="shadow all-1 rounded bordered"></div>
+        </div>
+    </section>
+
+
+    <script>
+
+        function handleDragAndDrop(draggableItemJsNodes, callback, callbackParams) // void
+        {
+            if (draggableItemJsNodes) {
+
+                draggableItemJsNodes.forEach(function (draggableItem) {
+                    draggableItem.addEventListener('dragover', handleDragOver, false);
+                    draggableItem.addEventListener('dragstart', handleDragStart, false);
+                    draggableItem.addEventListener('drop', handleDrop, false);
+
+
+                    // draggableItem.addEventListener('drop', function (ev) {
+                    //     handleSortableItemActionButtons(); // on components/create-image.js
+
+                    //     endTick(callback, callbackParams);
+                    // });
+                });
+            }
+        }
+        function qsa(selector) // js nodes
+        {
+            return document.querySelectorAll(selector);
+        }
+
+        const draggableItems = qsa('.sortable-items .shadow');
+        handleDragAndDrop(draggableItems);
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+/***********************************************************************
+ * Bootstrap based styles - buttons
+ * v.2.1.0
+ *
+ * Moisés Alcocer, 2020
+ * https://github.com/oricis/bootstrap-based-styles
+ * https://www.ironwoods.es
+ */
+
+ .button-group .btn {
+	 appearance: button;
+	 border: 1px solid grey;
+	 border-radius: 3px;
+	 color: white;
+	 cursor: pointer;
+	 display: inline-block;
+	 font-size: inherit;
+	 font-weight: 600;
+	 list-style: none;
+	 padding: 1rem;
+	 text-align: center;
+	 text-decoration: none;
+	 vertical-align: middle;
+}
+ .button-group .btn span {
+	 align-items: center;
+	 color: white;
+	 display: flex;
+}
+ .button-group .btn.btn-danger {
+	 background: rgba(228, 38, 0, .8);
+	 border-color: rgba(228, 38, 0, 1);
+}
+ .button-group .btn.btn-danger:hover {
+	 background: rgba(228, 38, 0, 1);
+}
+ .button-group .btn.btn-default {
+	 background: rgba(72, 72, 74, 0.1);
+	 border-color: rgba(72, 72, 74, 0.3);
+	 color: rgba(6, 6, 7, 0.75);
+}
+ .button-group .btn.btn-default span {
+	 color: rgba(6, 6, 7, 0.75);
+}
+ .button-group .btn.btn-default:hover {
+	 background: rgba(72, 72, 74, .3);
+}
+ .button-group .btn.btn-primary {
+	 background: rgba(0, 15, 220, .8);
+	 border-color: rgba(0, 15, 220, 1);
+}
+ .button-group .btn.btn-primary:hover {
+	 background: rgba(0, 15, 220, 1);
+}
+.button-group .btn:disabled,
+.disabled {
+    cursor: default;
+    filter: opacity(0.2);
+    pointer-events: none;
+}
+ .button-group .btn-small {
+	 padding: 0.5rem;
+}
+ .button-group .btn-unrounded {
+	 border-radius: 0;
+}

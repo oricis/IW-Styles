@@ -9,7 +9,108 @@ select,
 textarea {
     border-width: 1.5px;
 }
-input[type=checkbox] {
+input[type=checkbox],
+input[type=radio] {
     height: 1.2rem;
     width : 1.2rem;
+}
+label {
+    sup {
+        color: var(--red);
+        font-weight: 700;
+    }
+}
+
+
+form {
+    // inputs, textarea, etc. with errors
+    .is-invalid {
+        border-color: var(--red);
+    }
+    .warn {
+        margin-top: .5rem;
+    }
+
+    fieldset {
+        margin  : 1rem 0;
+        padding : 1rem;
+    }
+}
+select option {
+    color: var(--blue);
+}
+
+.button-group {
+    margin: 2rem auto 1rem;
+}
+.form-content {
+    border    : 1px solid #ccc;
+    min-height: auto;
+    padding   : 6px 12px;
+}
+.form-group .check-option,
+.form-group.check-group,
+.form-group.check-option {
+    display: flex;
+    flex-direction  : row;
+    justify-content : flex-start;
+}
+.check-group {
+    align-items: center;
+
+    input {
+        margin-right: .5rem;
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+}
+.check-option input {
+    height: 1.5rem;
+    width : 2rem;
+}
+.form-group {
+    display         : flex;
+    flex-direction  : column;
+    margin-top      : 1rem;
+    justify-content : space-between;
+
+    &.top-0 {
+        margin-top: 0;
+    }
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: .5rem;
+}
+
+
+.button-group {
+    .btn.border-error {
+        border-color: var(--red);
+    }
+    .btn.border-success {
+        border-color: var(--green);
+    }
+}
+
+////////////////////////////////////////////////////////////////////////
+// Tabs
+
+.button-tabs {
+    display: flex;
+    justify-content: flex-start;
+
+    .btn,
+    .btn:focus {
+        border        : 1px solid #ccc;
+        border-bottom : none;
+        border-radius : 0 !important;
+    }
+    .btn-active {
+        background: #E5E5E5 !important;
+    }
+}
+.tab * {
+    text-align: left;
 }

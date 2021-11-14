@@ -1,8 +1,55 @@
 
 /**
- * Tables
- *
- */
+* Tables
+*
+*/
+
+table {
+    border-collapse: collapse;
+
+    &.small-cells {
+        td {
+            padding: .25rem;
+        }
+    }
+    &.table-striped tbody tr:nth-child(even) *:not(.btn):not(svg) {
+        background: var(--lavender);
+    }
+
+    td.left-content {
+        text-align: left;
+    }
+    td.right-content {
+        text-align: right;
+    }
+    tr.left-content {
+        td,
+        th {
+            text-align: left;
+        }
+    }
+    tr.right-content {
+        td,
+        th {
+            text-align: right;
+        }
+    }
+
+    td,
+    th {
+        border        : 1px solid grey;
+        display       : table-cell;
+        padding       : .5rem;
+        text-align    : center;
+        vertical-align: middle;
+    }
+    th,
+    th * {
+        background  : var(--color-lighter);
+        color       : white;
+        font-weight : 900;
+    }
+}
 
 .striped-rows li:nth-child(even) *,
 .striped-rows li:nth-child(even) div,

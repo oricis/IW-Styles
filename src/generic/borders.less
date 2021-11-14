@@ -5,33 +5,47 @@
  */
 
 .border-bottom {
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid var(--border-color);
 }
 .border-left {
-    border-left: 1px solid grey;
+    border-left: 1px solid var(--border-color);
 }
 .border-right {
-    border-right: 1px solid grey;
+    border-right: 1px solid var(--border-color);
 }
 .border-top {
-    border-top: 1px solid grey;
+    border-top: 1px solid var(--border-color);
+}
+.border-both {
+    border-left : 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
 }
 .bordered,
 .border-all {
-    border  : 1px solid grey;
+    border  : 1px solid var(--border-color);
 }
 .no-border,
 .no-border:focus {
     border  : none !important;
     outline : none;
 }
-.selected-border {
-    border  : 2px solid rgb(55, 55, 55);
-}
 
 .rounded {
     border-radius: 3px;
 }
+
+div.circle,
+img.circle,
 .circle {
-    border-radius: 50% !important;
+    border-radius: 50%;
+}
+
+.blue-border {
+    border-color: var(--blue);
+}
+.green-border {
+    border-color: var(--green);
+}
+.red-border {
+    border-color: var(--red);
 }

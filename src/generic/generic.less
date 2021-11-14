@@ -1,6 +1,12 @@
 /*** Fonts / texts ****************************************************/
 
-p {
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5 {
     &.main {
         font-weight: 700;
     }
@@ -11,56 +17,122 @@ p {
         font-weight : 700;
     }
     &.warn {
-        color       : var(--color-lighter);
+        color: var(--color-lighter);
+    }
+    &.warn.cblue {
+        color: var(--blue);
+    }
+    &.warn.cgreen {
+        color: var(--green);
+    }
+    &.warn.cred {
+        color: var(--red);
+    }
+    &.warn.cwhite {
+        color: var(--white);
+    }
+    &.warn.cyellow {
+        color: var(--yellow);
     }
 }
 
-.a,
-a {
-    font-weight: 800;
-    color: var(--darkblue);
+.color-access {
+    color: var(--blue);
+}
+.color-active,
+.color-success {
+    color: var(--green);
+}
+.color-error,
+.color-inactive {
+    color: var(--red);
+}
+.color-warn,
+.color-warning {
+    color: var(--orange);
 }
 
+////////////////////////////////////////////////////////////////////////
+// Boxes
 
-/*** Boxes ************************************************************/
-
+article.bg-active,
+div.bg-active,
+section.bg-active,
 .bg-active,
 .bg-active * {
-    background: #e3f1e3;
+    background-color: var(--lightblue);
+}
+.bg-active-container,
+.bg-active-container *,
+.bg-lightblue,
+.bg-lightblue * {
+    background-color: var(--lightblue);
+}
+.bg-dark,
+.bg-dark * {
+    background: var(--color-lighter);
 }
 .bg-lavender,
 .bg-lavender * {
-    background: lavender;
+    background: var(--lavender);
+}
+.bg-transparent *,
+.bg-transparent,
+.no-bg *,
+.no-bg {
+    background: transparent;
 }
 .bg-yellow,
 .bg-yellow * {
-    background: rgb(250, 244, 187);
+    background: var(--lightyellow);
 }
-.no-bg,
-.no-bg * {
-    background: transparent;
+.bg-white,
+.bg-white * {
+    background: var(--white);;
+}
+.bg-xlightblue,
+.bg-xlightblue * {
+    background-color: var(--xlightblue);
+}
+
+.fill-blue * {
+    fill: var(--blue);
+}
+.fill-grey * {
+    fill: var(--grey);
+}
+.fill-green * {
+    fill: var(--green);
+}
+.fill-red * {
+    fill: var(--red);
 }
 
 .no-margin {
-    margin: 0 !important;
+    margin: 0;
 }
 .no-padding {
-    padding: 0 !important;
+    padding: 0;
 }
 
-/*** Displays / positions *********************************************/
+////////////////////////////////////////////////////////////////////////
+// Displays / positions
 
-figure.center-content,
-figure.center-content figcaption,
-picture.center-content,
+.center-content *,
 .center-content,
-.center-content * {
+.left-content .center-content,
+.right-content .center-content {
     text-align: center;
 }
+
+.center-content .left-content,
+.right-content .left-content,
 .left-content,
 .left-content * {
     text-align: left;
 }
+.center-content .right-content,
+.left-content .right-content,
 .right-content,
 .right-content * {
     text-align: right;
@@ -83,6 +155,23 @@ picture.center-content,
     transform: rotate(270deg);
 }
 
+.bottom-left-position {
+    display         : flex;
+    justify-content : flex-start;
+}
+.top-left-position {
+    display         : flex;
+    justify-content : flex-start;
+}
+.bottom-right-position {
+    display         : flex;
+    justify-content : flex-end;
+}
+.top-right-position {
+    display         : flex;
+    justify-content : flex-end;
+}
+
 .two-cols {
     display       : flex;
     flex-direction: column;
@@ -102,86 +191,14 @@ picture.center-content,
     }
 }
 
-/*** Displays / visibility ********************************************/
-
-.grid-2-5 {
-    display: grid !important;
-    grid-template-columns : 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows    : 1fr 1fr;
-}
+////////////////////////////////////////////////////////////////////////
+//  Visibility
 
 .fit-to-lines {
     .flex;
     .flex-column;
     .flex-start;
 }
-
-
-// Hide elements to copy to clipboard
-.top-none {
-    position: absolute;
-    top: -200vh;
-}
-
-ul.inline-block-items {
-    li {
-        display: inline-block;
-    }
-}
-.disc li {
-    list-style: disc;
-}
-
-/*** Form elements ****************************************************/
-
-fieldset {
-    margin  : 1rem 0;
-    padding : 1rem;
-}
-select option {
-    color: rgb(0, 140, 255);
-}
-
-.button-group {
-    margin: 2rem auto 1rem;
-}
-.form-content {
-    border    : 1px solid #ccc;
-    min-height: auto;
-    padding   : 6px 12px;
-}
-.form-group .check-option,
-.form-group.check-group,
-.form-group.check-option {
-    display: flex;
-    flex-direction  : row;
-    justify-content : flex-start;
-}
-.check-group {
-    align-items: center;
-
-    input {
-        margin-right: .5rem;
-        height: 1.5rem;
-        width: 1.5rem;
-    }
-}
-.check-option input {
-    height: 1.5rem;
-    width : 2rem;
-}
-.form-group {
-    display         : flex;
-    flex-direction  : column;
-    margin-top      : 1rem;
-    justify-content : space-between;
-}
-.form-group input,
-.form-group select,
-.form-group textarea {
-    padding: .5rem;
-}
-
 
 .links a {
     display : block;
@@ -200,53 +217,8 @@ select option {
     }
 }
 
-
-/*** Feedbacks ********************************************************/
-
-.alert {
-    border        : 2px solid rgb(132, 219, 0); /* default success color */
-    border-radius : 5px;
-    border-width  : 0 2px 2px 0;
-    margin        : 1.2rem auto;
-    padding       : .6rem;
-    width         : 96%;
-}
-@media (max-width: 780px)
-{
-   .alert {
-        width : 90%;
-    }
-}
-
-.alert,
-.alert * {
-    background: #43414E;/*rgb(15, 15, 20);*/
-    color     : white;
-}
-.alert-danger {
-    border-color: rgb(255, 79, 79);
-}
-.alert-trace {
-    border-color: rgb(0, 0, 255);
-}
-.alert-warn {
-    border-color: rgb(255, 161, 20);
-}
-.form-group .alert {
-    margin: 1% 0;
-    text-align: left;
-}
-form {
-    // inputs, textarea, etc. with errors
-    .is-invalid {
-        border-color: var(--red);
-    }
-    .warn {
-        margin-top: .5rem;
-    }
-}
-
-/*** Tabs *************************************************************/
+////////////////////////////////////////////////////////////////////////
+//  Tabs
 
 .button-tabs {
     display: flex;
@@ -266,8 +238,8 @@ form {
     text-align: left;
 }
 
-
-/*** Toggles **********************************************************/
+////////////////////////////////////////////////////////////////////////
+// Toggles
 
 #show-toggle1:checked~#toggle1,
 #show-toggle2:checked~#toggle2,
@@ -276,14 +248,8 @@ form {
     display: inherit;
 }
 
-
-/*** Var **************************************************************/
-
-input,
-select,
-textarea {
-    border-width: 1.5px;
-}
+////////////////////////////////////////////////////////////////////////
+// Var
 
 summary {
     cursor: pointer;
@@ -293,6 +259,7 @@ summary:focus {
     font-weight : 800;
     outline     : none;
 }
+
 
 .breadcrumb {
     display: inline-flex;
@@ -327,4 +294,17 @@ summary:focus {
     align-items     : center;
     display         : flex;
     justify-content : space-between;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Cursors
+
+.crosshair {
+    cursor: crosshair;
+}
+.help {
+    cursor: help;
+}
+.pointer {
+    cursor: pointer;
 }

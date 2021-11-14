@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page content on tabs</title>
+
+    <link rel="stylesheet" href="../../dist/css/main.css">
+    <link rel="stylesheet" href="../public/css/reset.min.css">
+    <link rel="stylesheet" href="../public/css/buttons-bootstrap-based.css">
+    <link rel="stylesheet" href="./public/css/content-on-tabs.css">
+
+    <script defer src="../public/js/common.js"></script>
+    <script defer src="./public/js/PageTabsComponent.js"></script>
+    <script defer src="./public/js/content-on-tabs.js"></script>
+</head>
+<body>
+    <main class="w-100 wmx-80 all-5 both-auto">
+        <section class="component page-tabs">
+            <h3 hidden>Contenidos de la página</h3>
+            <ul class="tab-controls">
+                <li class="tab-control active" data-target="tab-1">Uno</li>
+                <li class="tab-control" data-target="tab-2">Dos</li>
+                <li class="tab-control" data-target="tab-3">Tres</li>
+            </ul>
+
+            <div class="tab-contents pad-5 pad-both-2 bordered">
+                <article class="tab-content" id="tab-1" data-number="1" data-active="1">
+                    <h3>Content of first</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, est assumenda dolorem repudiandae
+                        itaque, vitae ipsum incidunt dolorum similique, minima eum? Consequatur ad praesentium asperiores
+                        repudiandae minima eligendi voluptatum qui!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, est assumenda dolorem repudiandae
+                        itaque, vitae ipsum incidunt dolorum similique, minima eum? Consequatur ad praesentium asperiores
+                        repudiandae minima eligendi voluptatum qui!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, est assumenda dolorem repudiandae
+                        itaque, vitae ipsum incidunt dolorum similique, minima eum? Consequatur ad praesentium asperiores
+                        repudiandae minima eligendi voluptatum qui!</p>
+                </article>
+                <article class="tab-content" id="tab-2" data-number="2" data-active="1" hidden="true">
+                    <h3>Content of second</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque inventore maiores assumenda sed odit
+                        officia, obcaecati ex repellendus aliquam possimus praesentium nihil ipsam vel dolores officiis
+                        sapiente sint laborum ea!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, est assumenda dolorem repudiandae
+                        itaque, vitae ipsum incidunt dolorum similique, minima eum? Consequatur ad praesentium asperiores
+                        repudiandae minima eligendi voluptatum qui!</p>
+                </article>
+                <article class="tab-content" id="tab-3" data-number="3" data-active="1" hidden="true">
+                    <h3>Content of third</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat aut incidunt odit voluptates
+                        molestias sint eum corrupti architecto culpa ex voluptatum sequi sunt quidem placeat expedita esse
+                        tempore, ab in!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odit earum beatae optio. Assumenda aliquam consequuntur debitis labore! Labore reiciendis blanditiis magnam corporis quae, debitis ipsa quis exercitationem omnis optio!</p>
+                </article>
+            </div>
+
+            <ul class="tab-pagination button-group right-content">
+                <li class="btn btn-default btn-small tab-paginate-to disabled" id="to-last-button">
+                    Last
+                </li>
+                <li class="btn btn-default btn-small tab-paginate-to" id="to-next-button">
+                    Next
+                </li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

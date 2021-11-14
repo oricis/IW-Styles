@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortable Gallery (with jQuery UI)</title>
+
+    <link rel="stylesheet" href="../dist/css/main.css">
+
+    <style>
+        .images-shadow,
+        .images-container {
+            min-width : 96%;
+            width     : 102%;
+        }
+        .images-container img,
+        .images-shadow .shadow {
+            height: 180px;
+            width : 180px;
+        }
+        .sortable:active {
+            cursor: move;
+        }
+        .sortable:hover {
+            cursor: pointer;
+        }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#sortable").sortable();
+            $("#sortable").disableSelection();
+        });
+    </script>
+</head>
+<body>
+    <h1 class="top-2">Sortable Gallery (with jQuery + jQuery UI)</h1>
+
+    <section class="sortable-gallery flex flex-column flex-center pad-5">
+        <div>
+            <h1>Available images</h1>
+        </div>
+        <div class="images-container
+            flex flex-center top-5 bordered rounded pad-1"
+            id="sortable">
+            <div class="image-box bordered rounded all-1 pad-1 sortable">
+                <figure>
+                    <img src="./public/images/placeholder.png" alt="image 1">
+                    <figcaption>Lorem ipsum sit amet</figcaption>
+                </figure>
+                <p class="pad-2 bg-lavender">
+                    Position: <strong class="position">1</strong>
+                </p>
+            </div>
+            <div class="image-box bordered rounded all-1 pad-1 sortable">
+                <figure>
+                    <img src="./public/images/placeholder.png" alt="image 2">
+                    <figcaption>Lorem ipsum</figcaption>
+                </figure>
+                <p class="pad-2 bg-lavender">
+                    Position: <strong class="position">2</strong>
+                </p>
+            </div>
+            <div class="image-box bordered rounded all-1 pad-1 sortable">
+                <figure>
+                    <img src="./public/images/placeholder.png" alt="image 3">
+                    <figcaption>Lorem ipsum lorem</figcaption>
+                </figure>
+                <p class="pad-2 bg-lavender">
+                    Position: <strong class="position">3</strong>
+                </p>
+            </div>
+            <div class="image-box bordered rounded all-1 pad-1 sortable">
+                <figure>
+                    <img src="./public/images/placeholder.png" alt="image 4">
+                    <figcaption>Lorem ipsum dolor</figcaption>
+                </figure>
+                <p class="pad-2 bg-lavender">
+                    Position: <strong class="position">4</strong>
+                </p>
+            </div>
+            <div class="image-box bordered rounded all-1 pad-1 sortable">
+                <figure>
+                    <img src="./public/images/placeholder.png" alt="image 5">
+                    <figcaption>Lorem ipsum. Fuga blanditiis</figcaption>
+                </figure>
+                <p class="pad-2 bg-lavender">
+                    Position: <strong class="position">5</strong>
+                </p>
+            </div>
+        </div>
+        <div class="images-shadow
+            flex flex-center top-2 bordered rounded pad-1">
+            <div class="bordered rounded all-1 pad-1">
+                <div class="shadow"></div>
+            </div>
+            <div class="bordered rounded all-1 pad-1">
+                <div class="shadow"></div>
+            </div>
+            <div class="bordered rounded all-1 pad-1">
+                <div class="shadow"></div>
+            </div>
+            <div class="bordered rounded all-1 pad-1">
+                <div class="shadow"></div>
+            </div>
+            <div class="bordered rounded all-1 pad-1">
+                <div class="shadow"></div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

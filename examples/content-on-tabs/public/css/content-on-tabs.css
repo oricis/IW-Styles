@@ -1,0 +1,38 @@
+/**
+ * Component styles: "page-tabs-component
+ *
+ */
+
+.component.page-tabs .tab-contents {
+    min-height: 50vh;
+}
+.component.page-tabs .tab-controls {
+    display : flex;
+}
+.component.page-tabs .tab-controls li {
+    border        : 1px solid grey;
+    border-bottom : none;
+    border-right  : none;
+    padding       : 9px 2rem;
+    width         : fit-content;
+}
+.component.page-tabs .tab-controls li:hover {
+    background  : rgb(192, 208, 253);
+    cursor      : pointer;
+}
+.component.page-tabs .tab-controls li,
+.component.page-tabs .tab-controls li:hover * {
+    background: transparent;
+}
+.component.page-tabs .tab-controls li a {
+    text-decoration: none;
+}
+.component.page-tabs .tab-controls li:last-child {
+    border-radius : 0 9px 0 0;
+    border-right  : 1px solid grey;
+}
+.component.page-tabs .tab-controls .active,
+.component.page-tabs .tab-controls .active * {
+    background  : rgb(108, 108, 108);
+    color       : white;
+}

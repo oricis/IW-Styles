@@ -4,6 +4,9 @@
  *
  */
 
+.block {
+    display: block;
+}
 .contents {
     display: contents;
 }
@@ -35,6 +38,9 @@
 .inline {
     display: inline;
 }
+.inline-block {
+    display: inline-block;
+}
 .inline-flex {
     display: inline-flex;
 }
@@ -43,6 +49,22 @@
 }
 
 
+.align-baseline {
+    align-items: baseline;
+}
 .align-center {
     align-items: center;
+}
+
+ul.inline-block-items li {
+    display: inline-block;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Grid layouts
+
+.grid-2-5 {
+    display: grid !important;
+    grid-template-columns : 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows    : 1fr 1fr;
 }
